@@ -107,3 +107,25 @@ def clear_screen():
         subprocess.run("cls", shell=True)
     else:
         subprocess.run("clear", shell=True)
+        
+# Function helps determine if system is mac or windows first to collect keystroke input for exiting option 3
+
+def keystroke():
+  
+  if sys.platform == "win32":
+    from msvcrt import getch
+    
+    return getch().decode("utf-8", errors="ignore")
+  
+  else:
+    import tty
+    import termios
+    
+    fd = sys.stdin.fileno()
+    old_set = termios.tcgetattr(fd)
+    
+    try:
+      tty.setraw(fd)
+      return sys.stdin.read(1)
+    finally:
+      termios.tcsetattr(fd, termios.TCSADRAIN, old_set)
