@@ -53,6 +53,10 @@ def main():
             e = f"\nMessage: Your file has encountered an error \nError: a line is Missing numerical assignment or message\n"
             print(e)
             time.sleep(5)
+        except FileNotFoundError:
+            print("No file associated for decoding.")
+            print("Please use option 1 to create a new message and file before attempting to decode.")
+            time.sleep(4)
 
 
 # Checks if file name is named main, it will proceed with running the main function
