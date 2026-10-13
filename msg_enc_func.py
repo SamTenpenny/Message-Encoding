@@ -109,7 +109,6 @@ def clear_screen():
         subprocess.run("clear", shell=True)
         
 # Function helps determine if system is mac or windows first to collect keystroke input for exiting option 3
-
 def keystroke():
   
   if sys.platform == "win32":
